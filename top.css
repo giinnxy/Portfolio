@@ -1,0 +1,206 @@
+*,
+*::before,
+*after,
+*::after {
+    box-sizing: border-box;
+}
+
+:root{
+    --ff-primary: 'Source Sans Pro', sans-serif ;
+    --ff-secondary: 'Source Code Pen', monospace;
+
+    --fw-reg:300;
+    --fw-bold: 900;
+
+    --clr-light: #ffff;
+    --clr-dark:  #303030;
+    --clr-grey: #34495E;
+    --clr-accent: #D5C19A  ;
+    --clr-neutral-900: hsl(207, 19%, 9%);
+    --clr-neutral-100:hsl(0, 0%, 100%);
+    --clr-accent-400: hsl(142 90% 61%);
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3:1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba( 0, 0, 0,.25),
+    0.125em 0.125em 0.25em rgba(0,0,0,.15) ;
+    --background: rgba(213, 193, 154, 0.85);
+
+    scroll-behavior: smooth;
+}
+
+@media(min-width: 800px){
+    :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3:1.5rem;
+        --fs-body: 1.125rem;
+    }
+}
+
+body {
+    background: var(--clr-grey);
+    color: var(--clr-light);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: clamp(2rem, 1rem + 5vw, 4rem);
+    line-height: 1.6;
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+    
+}
+
+section {
+    padding: 5em, 2em;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    margin-left: calc(100% / 2);
+    margin: 0 auto;
+}
+
+strong { font-weight: var(--fw-bold);}
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1 {font-size: var(--fs-h1);}
+h2 {font-size: var(--fs-h2);}
+h3 {font-size: var(--fs-h3);}
+
+.title{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+p {
+    text-align:center;
+    font-size: 1.2rem;
+}
+
+button a {
+    text-decoration:none;
+}
+
+.button {
+    margin: auto;
+    --background-color: white;
+    --border-color: linear-gradient(to bottom right, red, blue);
+    --border-width: 0.125em;
+    --edge-size: 0.8em;
+    font-size: 30px;
+  
+    cursor: pointer;
+    background: var(--background-color);
+    padding: 0.5em 1.5em;
+    border: 0;
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    clip-path: polygon(
+      var(--edge-size) 0%,
+      100% 0,
+      100% calc(100% - var(--edge-size)),
+      calc(100% - var(--edge-size)) 100%,
+      0 100%,
+      0% var(--edge-size)
+    );
+    transition: color 250ms;
+  }
+  
+  button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--border-color);
+    z-index: -2;
+  }
+  
+  button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--background-color);
+    z-index: -1;
+    clip-path: polygon(
+     
+      var(--border-width) calc(var(--edge-size) + var(--border-width) * 0.5),
+      
+      calc(var(--edge-size) + var(--border-width) * 0.5) var(--border-width),
+      
+      calc(100% - var(--border-width)) var(--border-width),
+      
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+      
+      calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      
+      calc(var(--border-width)) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+  }
+  
+  button:hover {
+    color: white;
+  }
+  
+  button:hover::after {
+    
+  
+    clip-path: polygon(
+      
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+  
+      calc(100% - var(--border-width)) var(--border-width),
+     
+      calc(100% - var(--border-width)) var(--border-width),
+ 
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+     
+      calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      
+      calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+  }
+  
+  .controls {
+    position: absolute;
+    inset: auto 0 5rem;
+    width: fit-content;
+    margin-inline: auto;
+    font-size: 1.125rem;
+  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+  }
+  
+  code {
+    display: block;
+    margin-top: 1em;
+    background: rgb(0 0 0 / 0.1);
+    padding: 0.25em 0.5em;
+  }
+  
+  
+ .ohp__title{
+    text-align: center;
+   }
